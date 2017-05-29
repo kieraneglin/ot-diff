@@ -9,20 +9,6 @@ class Diff {
     let charsAdded = changeEndIndexNew - changeStart,
       charsRemoved = changeEndIndexOld - changeStart;
 
-    // let fancyChar =
-
-    console.log(`${oldString} -> ${newString}`);
-
-    // console.log(`Change starts at: ${changeStart}`);
-    // console.log(`Change ends at (from end): ${changeEnd}`);
-    //
-    // console.log(`Change ends at (old) ${changeEndIndexOld}`);
-    // console.log(`Change ends at (new) ${changeEndIndexNew}`);
-    //
-    // console.log(`Number of chars added: ${charsAdded}`);
-    // console.log(`Number of chars removed: ${charsRemoved}`);
-
-    // Case statements are an anttipattern.  Look it up
     let result;
 
     if(charsRemoved === 0 && charsAdded > 0) {
@@ -76,12 +62,3 @@ class Diff {
     return end;
   }
 }
-
-let d = new Diff();
-console.log(d.diff('abd', 'abcd'));
-console.log('----------------------');
-console.log(d.diff('abc', 'ab'));
-console.log('----------------------');
-console.log(d.diff('abc', 'abd'));
-console.log('----------------------');
-console.log(d.diff('abc', 'abc'));
