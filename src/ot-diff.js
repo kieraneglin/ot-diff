@@ -78,4 +78,4 @@ class Diff {
   }
 }
 
-export default new Diff();
+module.exports = new Diff();
