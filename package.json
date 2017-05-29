@@ -1,6 +1,6 @@
 {
   "name": "ot-diff",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple diff library for implementing operational transformations in JS",
   "main": "dist/ot-diff.js",
   "scripts": {
