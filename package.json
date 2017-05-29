@@ -2,9 +2,9 @@
   "name": "ot-diff",
   "version": "0.0.1",
   "description": "A simple diff library for implementing operational transformations in JS",
-  "main": "dist/main.js",
+  "main": "dist/ot-diff.js",
   "scripts": {
-    "test": "mocha",
+    "test": "npm run compile; mocha dist/test",
     "compile": "babel --presets es2015,stage-0 -d dist/ src/"
   },
   "repository": {
@@ -25,6 +25,8 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.0.0",
+    "mocha": "^3.4.2"
   }
 }

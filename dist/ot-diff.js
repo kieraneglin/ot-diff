@@ -83,7 +83,7 @@ var Diff = function () {
         };
       } else {
         result = {
-          action: 'unchanged'
+          action: 'noop'
         };
       }
 

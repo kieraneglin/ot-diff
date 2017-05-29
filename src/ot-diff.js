@@ -66,7 +66,7 @@ class Diff {
       };
     } else {
       result = {
-        action: 'unchanged'
+        action: 'noop'
       };
     }
 
