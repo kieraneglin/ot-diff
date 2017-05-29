@@ -1,0 +1,30 @@
+{
+  "name": "ot-diff",
+  "version": "0.0.1",
+  "description": "A simple diff library for implementing operational transformations in JS",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "mocha",
+    "compile": "babel --presets es2015,stage-0 -d dist/ src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kieraneglin/ot-diff.git"
+  },
+  "keywords": [
+    "diff",
+    "ot",
+    "operation-transformation"
+  ],
+  "author": "Kieran Eglin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kieraneglin/ot-diff/issues"
+  },
+  "homepage": "https://github.com/kieraneglin/ot-diff#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
