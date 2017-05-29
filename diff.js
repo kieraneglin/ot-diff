@@ -23,18 +23,34 @@ class Diff {
     // console.log(`Number of chars removed: ${charsRemoved}`);
 
     // Case statements are an anttipattern.  Look it up
+    let result;
+
     if(charsRemoved === 0 && charsAdded > 0) {
-      console.log('Added');
-      console.log(`Difference: ${newString.substr(changeStart, charsAdded)}`);
+      result = {
+        action: 'insert',
+        start: changeStart,
+        payload: newString.slice(changeStart, changeEndIndexNew)
+      };
     } else if(charsRemoved > 0 && charsAdded === 0) {
-      console.log('removed');
-      console.log(`Difference: ${oldString.substr(changeStart, charsRemoved)}`);
+      result = {
+        action: 'delete',
+        start: changeStart,
+        remove: charsRemoved
+      };
     } else if(charsRemoved > 0 && charsAdded > 0) {
-      console.log('replace');
-      console.log(`Difference: ${oldString.substr(changeStart, charsAdded)} -> ${newString.substr(changeStart, charsAdded)}`);
+      result = {
+        action: 'replace',
+        start: changeStart,
+        remove: charsRemoved,
+        payload: newString.substr(changeStart, charsAdded)
+      };
     } else {
-      console.log('no change');
+      result = {
+        action: 'unchanged'
+      };
     }
+
+    return result;
   }
 
   getChangeStart(oldString, newString) {
@@ -62,16 +78,10 @@ class Diff {
 }
 
 let d = new Diff();
-d.diff('string', 'strig');
-console.log('------------------------');
-d.diff('s', 'd');
-console.log('------------------------');
-d.diff('st', 's');
-console.log('------------------------');
-d.diff('s', 'st');
-console.log('------------------------');
-d.diff('s', 's');
-console.log('------------------------');
-d.diff('this is long', 'this is l');
-console.log('------------------------');
-d.diff('string', 'strimg');
+console.log(d.diff('abd', 'abcd'));
+console.log('----------------------');
+console.log(d.diff('abc', 'ab'));
+console.log('----------------------');
+console.log(d.diff('abc', 'abd'));
+console.log('----------------------');
+console.log(d.diff('abc', 'abc'));
