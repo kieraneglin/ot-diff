@@ -7,6 +7,21 @@ class Diff {
 
     return DiffHelpers.payload(opts);
   }
+  transform(string, transform) {
+    return this[transform.action](string, transform);
+  }
+  insert(string, transform) {
+    return string.slice(0, transform.start) + transform.payload + string.slice(transform.start);
+  }
+  delete(string, transform) {
+    return string.slice(0, transform.start) + string.slice(transform.start + transform.remove);
+  }
+  replace(string, transform) {
+    return this.insert(this.delete(string, transform), transform);
+  }
+  noop() {
+    return;
+  }
 }
 
-module.exports = new Diff();
+export default new Diff();

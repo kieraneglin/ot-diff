@@ -1,1 +1,1 @@
-module.exports = require('./dist/ot-diff')
+module.exports = require('./dist/ot-diff');

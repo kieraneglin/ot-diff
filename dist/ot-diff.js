@@ -25,6 +25,31 @@ var Diff = function () {
 
       return _diffHelpers2.default.payload(opts);
     }
+  }, {
+    key: 'transform',
+    value: function transform(string, _transform) {
+      return this[_transform.action](string, _transform);
+    }
+  }, {
+    key: 'insert',
+    value: function insert(string, transform) {
+      return string.slice(0, transform.start) + transform.payload + string.slice(transform.start);
+    }
+  }, {
+    key: 'delete',
+    value: function _delete(string, transform) {
+      return string.slice(0, transform.start) + string.slice(transform.start + transform.remove);
+    }
+  }, {
+    key: 'replace',
+    value: function replace(string, transform) {
+      return this.insert(this.delete(string, transform), transform);
+    }
+  }, {
+    key: 'noop',
+    value: function noop() {
+      return;
+    }
   }]);
 
   return Diff;
