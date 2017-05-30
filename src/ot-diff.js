@@ -19,8 +19,8 @@ class Diff {
   replace(string, transform) {
     return this.insert(this.delete(string, transform), transform);
   }
-  noop() {
-    return;
+  noop(string) {
+    return string;
   }
 }
 
