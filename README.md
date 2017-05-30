@@ -49,7 +49,7 @@ OtDiff.diff('old string', 'new string', raw);
 
 ### Examples
 
-For more examples, see `src/test/main.js`.
+For more examples, see `src/test/`.
 
 #### Insertion
 
@@ -102,6 +102,28 @@ OtDiff.diff('string', 'string')
 // {
 //   action: 'noop'
 // }
+```
+
+### Transform tools
+
+There are four helper tools for applying transformations to a string.
+
+They all take the string you're manipulating and the transform returned by `OtDiff.diff`.  They are:
+
+```javascript
+let transform = OtDiff.diff(...);
+
+OtDiff.insert('string', transform);
+OtDiff.delete('string', transform);
+OtDiff.replace('string', transform);
+OtDiff.noop('string', transform);
+```
+Or, if you want the transform to be applied based on the value of `diff.action`, you can use this:
+
+```javascript
+let transform = OtDiff.diff(...);
+
+OtDiff.transform('string', transform); // Automatically applies the correct transformation based on transform
 ```
 
 ## Contributing
