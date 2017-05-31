@@ -11,10 +11,10 @@ class Diff {
     return this[transform.action](string, transform);
   }
   insert(string, transform) {
-    return string.slice(0, transform.start) + transform.payload + string.slice(transform.start);
+    return string.slice(0, parseInt(transform.start)) + transform.payload + string.slice(parseInt(transform.start));
   }
   delete(string, transform) {
-    return string.slice(0, transform.start) + string.slice(transform.start + transform.remove);
+    return string.slice(0, parseInt(transform.start)) + string.slice(parseInt(transform.start) + parseInt(transform.remove));
   }
   replace(string, transform) {
     return this.insert(this.delete(string, transform), transform);

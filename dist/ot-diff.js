@@ -37,12 +37,12 @@ var Diff = function () {
   }, {
     key: 'insert',
     value: function insert(string, transform) {
-      return string.slice(0, transform.start) + transform.payload + string.slice(transform.start);
+      return string.slice(0, parseInt(transform.start)) + transform.payload + string.slice(parseInt(transform.start));
     }
   }, {
     key: 'delete',
     value: function _delete(string, transform) {
-      return string.slice(0, transform.start) + string.slice(transform.start + transform.remove);
+      return string.slice(0, parseInt(transform.start)) + string.slice(parseInt(transform.start) + parseInt(transform.remove));
     }
   }, {
     key: 'replace',
