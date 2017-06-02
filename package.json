@@ -2,7 +2,7 @@
   "name": "ot-diff",
   "version": "1.1.1",
   "description": "A simple diff library for implementing operational transformations in JS",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "tsc; node index",
     "build-dev": "tsc --watch"
