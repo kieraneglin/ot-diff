@@ -4,9 +4,8 @@
   "description": "A simple diff library for implementing operational transformations in JS",
   "main": "index.js",
   "scripts": {
-    "test": "npm run compile; mocha dist/test",
-    "compile": "babel --presets es2015,stage-0 -d dist/ src/",
-    "benchmark": "npm run compile; node dist/benchmark/main"
+    "start": "tsc; node index",
+    "build-dev": "tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -24,11 +23,11 @@
   },
   "homepage": "https://github.com/kieraneglin/ot-diff#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "@types/node": "^7.0.23",
     "benchmark": "^2.1.4",
     "chai": "^4.0.0",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "ts-node": "^3.0.4",
+    "typescript": "^2.3.4"
   }
 }
