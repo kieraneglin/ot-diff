@@ -1,7 +1,8 @@
 import { Transform } from './interfaces/transform';
+import { Selection } from './interfaces/selection';
 
-class Cursor {
-  private selection: object
+export class Cursor {
+  private selection: Selection
 
   public preserve(element: HTMLInputElement): void {
     this.selection = {
@@ -14,15 +15,15 @@ class Cursor {
     this[transform.action](this.selection, transform);
   }
   public insert(transform: Transform): void {
-    if(parseInt(transform.start) < cursor.start) {
-      cursor.element.selectionStart = cursor.start + transform.payload.length;
-      cursor.element.selectionEnd = cursor.end + transform.payload.length;
-    } else if(parseInt(transform.start) >= cursor.start && parseInt(transform.start) < cursor.end) {
-      cursor.element.selectionStart = cursor.start;
-      cursor.element.selectionEnd = cursor.end + transform.payload.length;
+    if(transform.start < this.selection.start) {
+      this.selection.element.selectionStart = this.selection.start + transform.payload.length;
+      this.selection.element.selectionEnd = this.selection.end + transform.payload.length;
+    } else if(transform.start >= this.selection.start && transform.start < this.selection.end) {
+      this.selection.element.selectionStart = this.selection.start;
+      this.selection.element.selectionEnd = this.selection.end + transform.payload.length;
     } else {
-      cursor.element.selectionStart = cursor.start;
-      cursor.element.selectionEnd = cursor.end;
+      this.selection.element.selectionStart = this.selection.start;
+      this.selection.element.selectionEnd = this.selection.end;
     }
   }
 }

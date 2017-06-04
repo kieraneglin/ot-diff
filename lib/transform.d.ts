@@ -1,8 +1,9 @@
-export interface TransformInterface {
+export declare class Transform {
     action: string;
     start?: number | string;
     remove?: number | string;
     payload?: string;
     raw?: object;
-    nexTransform?: TransformInterface;
+    nexTransform?: Transform;
+    toInt(): Transform;
 }

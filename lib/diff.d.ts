@@ -1,5 +1,5 @@
-import { Transform } from './interfaces/transform';
-export declare class Diff {
+import { Transform } from './transform';
+export default class Diff {
     private newStr;
     private oldStr;
     private raw?;
@@ -10,8 +10,7 @@ export declare class Diff {
     private charsAdded;
     private charsRemoved;
     diff(oldStr: string, newStr: string, raw?: boolean): Transform;
-    private _changeStart(oldStr, newStr);
-    private _changeFromEnd(oldStr, newStr, changeStart);
-    private _payload();
+    private getChangeStart(oldStr, newStr);
+    private getChangeFromEnd(oldStr, newStr, changeStart);
+    private payload();
 }
-export declare let OtDiff: Diff;
