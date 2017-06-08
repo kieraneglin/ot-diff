@@ -1,7 +1,7 @@
 export interface TransformInterface {
     action: string;
-    start?: number | string;
-    remove?: number | string;
+    start?: number;
+    remove?: number;
     payload?: string;
     raw?: object;
     nexTransform?: TransformInterface;

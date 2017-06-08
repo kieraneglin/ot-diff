@@ -1,17 +1,17 @@
 export class Transform {
   public action: string
-  public start?: number | string
-  public remove?: number | string
+  public start?: number
+  public remove?: number
   public payload?: string
   public raw?: object
-  public nexTransform?: Transform
+  public nextTransform?: Transform
 
-  public toInt(): Transform {
+  public static toInt(transformObj: object): Transform {
     let transform: Transform = new Transform();
 
     for(let attribute of ['start', 'remove']){
-      if(this[attribute]) {
-        transform[attribute] = Number(this[attribute]);
+      if(transformObj[attribute]) {
+        transform[attribute] = Number(transformObj[attribute]);
       }
     }
 

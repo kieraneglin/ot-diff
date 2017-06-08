@@ -1,9 +1,9 @@
 export declare class Transform {
     action: string;
-    start?: number | string;
-    remove?: number | string;
+    start?: number;
+    remove?: number;
     payload?: string;
     raw?: object;
-    nexTransform?: Transform;
-    toInt(): Transform;
+    nextTransform?: Transform;
+    static toInt(transformObj: object): Transform;
 }
