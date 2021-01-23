@@ -11,14 +11,14 @@ declare module "ot-diff" {
     /**
      * Applies a transform (`insert`, `delete`, `replace` or `noop`) based on the value of diff.action.
      */
-    public transform(value: string, tramsform: OtDiff): string;
-    public insert(value: string, tramsform: OtDiff): string;
-    public delete(value: string, tramsform: OtDiff): string;
-    public replace(value: string, tramsform: OtDiff): string;
-    public noop(value: string, tramsform: OtDiff): string;
+    public transform(value: string, transform: OtDiff): string;
+    public insert(value: string, transform: OtDiff): string;
+    public delete(value: string, transform: OtDiff): string;
+    public replace(value: string, transform: OtDiff): string;
+    public noop(value: string, transform: OtDiff): string;
   }
 
-  export interface IOtOpts {
+  export interface OtOpts {
     newString: string;
     oldString: string;
     raw: boolean;
@@ -45,7 +45,8 @@ declare module "ot-diff" {
     payload: string
   } | {
     action: 'noop'
-  }) & { opts?: IOtOpts };
+  }) & { opts?: OtOpts };
 
-  export default new Diff();
+  const diff: Diff;
+  export default diff;
 }
